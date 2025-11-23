@@ -1,21 +1,35 @@
+DOCKER_COMPOSE = docker-compose -f docker-compose.yml
 
 build:
-	docker build .
+	${DOCKER_COMPOSE} build
 
 up:
-	docker-compose up -d
+	${DOCKER_COMPOSE} up -d --remove-orphans
 
 down:
-	docker-compose down
+	${DOCKER_COMPOSE} down -v --rmi=all --remove-orphans
+
+start:
+	${DOCKER_COMPOSE} start
+
+stop:
+	${DOCKER_COMPOSE} stop
 
 migrate:
-	docker-compose exec web python manage.py migrate
+	${DOCKER_COMPOSE} exec web python manage.py migrate
 
 createsuperuser:
-	docker-compose exec web python manage.py createsuperuser
+	${DOCKER_COMPOSE} exec web python manage.py createsuperuser
 
 startapp:
-	 docker-compose exec web python manage.py startapp $(name)
+	 ${DOCKER_COMPOSE} exec web python manage.py startapp $(name)
 
 app_bash:
-	docker-compose exec web bash
+	${DOCKER_COMPOSE} exec web bash
+
+ps:
+	${DOCKER_COMPOSE} ps
+
+logs:
+	${DOCKER_COMPOSE} logs -f
+
