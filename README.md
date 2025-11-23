@@ -1,6 +1,6 @@
-[За оснеову взята статья с официального сайта Django framework](https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial)
+[За основу взята статья с официального сайта Django framework](https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial)
 
-Копируем с репозитория проект
+Копируем из репозитория проект
 
 `git clone git@github.com:dmitrym-web/django-docker.git`
 
@@ -8,7 +8,7 @@
 
 `cd django-docker`
 
-Использум утилиту make, чтобы управлять проектом. Собираем образы приложения.
+Используем утилиту make, чтобы управлять проектом. Собираем образы приложения.
 
 `make build`
 
@@ -24,15 +24,17 @@ http://127.0.0.1:8000/
 
 ![Local Image](./images/main_page.png)
 
-Запускам миграцию.
+Запускам миграции.
 
 `make migrate`
 
-Создаем суперпользователя, введя имя, электорнную почту и пароль.
+Создаем суперпользователя.
 
 `make createsuperuser`
 
-Переходим по ссылке а админку
+![Local Image](./images/createsuperuser.png)
+
+Переходим по ссылке в админку
 
 http://127.0.0.1:8000/admin/
 
